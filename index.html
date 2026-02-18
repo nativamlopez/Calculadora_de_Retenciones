@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Calculadora de Retenciones</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="wrap">
+    <header class="head">
+      <h1>Calculadora de Retenciones</h1>
+      <p>Ingresa el monto líquido y el tipo de documento para calcular MN e impuestos.</p>
+    </header>
+
+    <section class="card">
+      <form id="form" class="grid" autocomplete="off">
+        <label class="field">
+          <span>Tipo</span>
+          <select id="tipo" required>
+            <option value="Factura">Factura</option>
+            <option value="Peaje">Peaje</option>
+            <option value="Recibo">Recibo</option>
+            <option value="Viatico">Viático</option>
+            <option value="Planilla">Planilla</option>
+            <option value="DJ">DJ</option>
+          </select>
+        </label>
+
+        <label class="field">
+          <span>Líquido (Bs)</span>
+          <input id="liquido" type="number" inputmode="decimal" step="0.01" min="0" placeholder="Ej: 1000.00" required />
+        </label>
+
+        <label class="field inline" id="bienWrap" title="Solo aplica para Recibo">
+          <input id="bien" type="checkbox" />
+          <span>Bien = SI (para Recibo)</span>
+        </label>
+
+        <div class="actions">
+          <button type="submit" class="btn">Calcular</button>
+          <button type="button" id="limpiar" class="btn ghost">Limpiar</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="card">
+      <div class="tableWrap">
+        <table class="tbl" aria-label="Resultados">
+          <thead>
+            <tr>
+              <th>MN</th>
+              <th>IT</th>
+              <th>IUE</th>
+              <th>RC-IVA</th>
+              <th>Total Ret.</th>
+              <th>Líquido</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td id="mn">—</td>
+              <td id="it">—</td>
+              <td id="iue">—</td>
+              <td id="rciva">—</td>
+              <td id="total">—</td>
+              <td id="liqOut">—</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="hint" id="hint">Selecciona el tipo y escribe el líquido.</p>
+    </section>
+
+    <footer class="foot">
+      <small>Hecho por Matias Lopez - NATIVA 2026.</small>
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
